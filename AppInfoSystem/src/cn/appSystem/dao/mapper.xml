@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace dao层接口  面向接口  创建映射  -->
+<mapper namespace="cn.appSystem.dao.DaoInterface">
+
+	<!--查找帖子总记录数  -->
+	<select id="getrows" resultType="int">
+		select count(*) from post
+	</select>
+	
+	</mapper>

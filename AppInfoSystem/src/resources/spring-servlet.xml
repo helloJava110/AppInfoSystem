@@ -1,1 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+                        http://www.springframework.org/schema/context  
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+                        http://www.springframework.org/schema/mvc  
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/tx
+                     	http://www.springframework.org/schema/tx/spring-tx.xsd">
+            
+       <mvc:resources location="/images/" mapping="/images/**"/>
+       <mvc:resources location="/css/" mapping="/css/**"/>
+       <mvc:resources location="/js/" mapping="/js/**"/>
+       <mvc:resources location="/html/" mapping="/html/**"/>
+       
+       
+       <!-- sping自动扫描base-package的Java文件 -->
+       <context:annotation-config />
+       
+       <!--自动注册 处理器映射 适配器@controller  -->
+       <mvc:annotation-driven/>
+       
+       <!-- 配置包自动扫描的包有哪些（去扫描@Controller） -->
+		<context:component-scan base-package="cn.appSystem.controller"/>
+       	<context:component-scan base-package="cn.appSystem.service"/>
+       	<context:component-scan base-package="cn.appSystem.dao"/> 
+       
+        <!-- 视图解析器 -->
+	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 访问应用web-inf里面的jsp的前后缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+                         	
+  </beans>

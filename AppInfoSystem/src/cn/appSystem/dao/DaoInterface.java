@@ -1,5 +1,5 @@
 package cn.appSystem.dao;
 
-public class DaoInterface {
+public interface DaoInterface {
 
 }
